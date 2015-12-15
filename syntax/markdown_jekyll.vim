@@ -3,7 +3,9 @@ let b:markdown_in_jekyll=0
 if getline(1) =~ '^---\s*$'
   let b:markdown_in_jekyll=1
 
-  syn region markdownJekyllFrontMatter matchgroup=markdownJekyllDelimiter contains=@NoSpell
+  syn include @yaml syntax/yaml.vim
+
+  syn region markdownJekyllFrontMatter matchgroup=markdownJekyllDelimiter contains=@yaml
     \ start="\%^---" end="^---$"
 
   syn region markdownJekyllLiquidTag matchgroup=markdownJekyllDelimiter contains=@NoSpell oneline
